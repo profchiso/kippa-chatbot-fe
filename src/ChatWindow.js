@@ -69,9 +69,15 @@ function ChatWindow({ courses, setIsChatWindow }) {
   return (
     <App>
       <div>
-        <Title
-          level={5}
-        >{` You have been successfully enrolled into ${course.title}`}</Title>
+        {display === "" && (
+          <>
+            <Title
+              level={5}
+            >{` You have been successfully enrolled into ${course.title}`}</Title>{" "}
+            <Divider />
+          </>
+        )}
+
         {display === "Introduction" && (
           <div>
             <Title>{display}</Title>
