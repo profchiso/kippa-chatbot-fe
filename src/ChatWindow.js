@@ -4,7 +4,7 @@ const { Title } = Typography;
 
 function ChatWindow({ courses, setIsChatWindow }) {
   const { notification } = App.useApp();
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState("");
   const onChange = (e) => {
     if (e.target.value === currentQuestion.answer) {
       notification.success({ message: "You got the answer correctly" });
@@ -58,6 +58,7 @@ function ChatWindow({ courses, setIsChatWindow }) {
   const submitAnswer = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setValue("");
     } else {
       nextLesson();
     }
