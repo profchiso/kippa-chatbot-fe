@@ -78,7 +78,9 @@ function ChatWindow({ courses, setIsChatWindow }) {
             <Divider />
             <div>{course.introduction}</div>
             <Divider />
-            <Button onClick={() => setDisplay("Lesson")}>Continue</Button>
+            <Button type="primary" onClick={() => setDisplay("Lesson")}>
+              Continue
+            </Button>
           </div>
         )}
         {display === "Lesson" && (
@@ -88,7 +90,9 @@ function ChatWindow({ courses, setIsChatWindow }) {
             <Divider />
             <p>{currentSection?.description}</p>
             <Divider />
-            <Button onClick={nextSection}>Continue</Button>
+            <Button type="primary" onClick={nextSection}>
+              Continue
+            </Button>
           </div>
         )}
         {display === "Questions" && (
@@ -105,13 +109,17 @@ function ChatWindow({ courses, setIsChatWindow }) {
             </Radio.Group>
             <Divider />
             <div>
-              <Button onClick={submitAnswer}>Continue</Button>
+              <Button type="primary" onClick={submitAnswer}>
+                Continue
+              </Button>
             </div>
           </div>
         )}
         {display === "" && (
           <div>
-            <Button onClick={() => setDisplay("Introduction")}>Continue</Button>
+            <Button type="primary" onClick={() => setDisplay("Introduction")}>
+              Continue
+            </Button>
           </div>
         )}
       </div>

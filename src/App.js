@@ -25,7 +25,9 @@ function Main() {
           <>
             <Title>Welcome</Title>
             <Divider type="horizontal" />
-            <Button onClick={() => setIsChatWindow(true)}>Start</Button>
+            <Button type="primary" onClick={() => setIsChatWindow(true)}>
+              Start
+            </Button>
           </>
         )}
       </div>
