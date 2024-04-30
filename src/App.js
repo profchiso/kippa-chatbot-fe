@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import ChatWindow from "./ChatWindow";
 
-function App() {
+import { Divider, Button, Typography, App } from "antd";
+const { Title } = Typography;
+
+function Main() {
+  const [isChatWindow, setIsChatWindow] = useState(false);
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    const handleFetchCourses = async () => {
+      const courses = await fetch("http://localhost:5001/api/v1/courses");
+      const courseToJSON = await courses.json();
+      setCourses(courseToJSON.resource);
+    };
+    handleFetchCourses();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <App>
+      <div className="App" style={{ textAlign: "center" }}>
+        {isChatWindow ? (
+          <ChatWindow courses={courses} setIsChatWindow={setIsChatWindow} />
+        ) : (
+          <>
+            <Title>Welcome</Title>
+            <Divider type="horizontal" />
+            <Button onClick={() => setIsChatWindow(true)}>Start</Button>
+          </>
+        )}
+      </div>
+    </App>
   );
 }
 
-export default App;
+export default Main;
