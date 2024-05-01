@@ -10,7 +10,9 @@ function Main() {
 
   useEffect(() => {
     const handleFetchCourses = async () => {
-      const courses = await fetch("http://localhost:5001/api/v1/courses");
+      const courses = await fetch(
+        "http://kippa-chatbot-be-production.up.railway.app/api/v1/courses"
+      );
       const courseToJSON = await courses.json();
       setCourses(courseToJSON.resource);
     };
