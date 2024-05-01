@@ -60,6 +60,7 @@ function ChatWindow({ courses, setIsChatWindow }) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setValue("");
     } else {
+      setValue("");
       nextLesson();
     }
   };
